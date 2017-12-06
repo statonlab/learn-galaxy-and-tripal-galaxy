@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "451780208",
     "id" : "F2981DA6",
-    "lastKnownWriteTime" : 1512587316,
-    "last_content_update" : 1512587316199,
+    "lastKnownWriteTime" : 1512587528,
+    "last_content_update" : 1512587528557,
     "path" : "~/Desktop/learn-galaxy-and-tripal-galaxy/.gitignore",
     "project_path" : ".gitignore",
     "properties" : {
-        "cursorPosition" : "1,6",
+        "cursorPosition" : "0,11",
         "scrollLine" : "0"
     },
     "relative_order" : 4,
