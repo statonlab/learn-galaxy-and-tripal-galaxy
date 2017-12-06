@@ -1,0 +1,26 @@
+]0;~/Desktop/learn-galaxy-and-tripal-galaxy[?1034hMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ [KMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ 
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ 
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ git remove -v[K[K[K[Kte -v
+git: 'removte' is not a git command. See 'git --help'.
+
+Did you mean this?
+	remote
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ git remote -v
+fatal: Not a git repository (or any of the parent directories): .git
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ git [K[K[K[K
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ 
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ 
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ clear
+[H[2J]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ ls
+[1m[34marchetypes[39;49m[0m                           [1m[34mlayouts[39;49m[0m
+config.toml                          learn-galaxy-and-tripal-galaxy.Rproj
+[1m[34mcontent[39;49m[0m                              [1m[34mpublic[39;49m[0m
+[1m[34mdata[39;49m[0m                                 [1m[34mstatic[39;49m[0m
+index.Rmd                            [1m[34mthemes[39;49m[0m
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ g[Ktouch .gitin[Kgnore
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ 
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ 
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ touch .gitignorels[Ktouch .gitignore[K
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ gpupdate [K[K[K[K[K[K[K[K[Kgit init .
+Initialized empty Git repository in /Users/mingchen/Desktop/learn-galaxy-and-tripal-galaxy/.git/
+]0;~/Desktop/learn-galaxy-and-tripal-galaxyMings-MacBook-Pro:learn-galaxy-and-tripal-galaxy mingchen$ ga;gc ''i'n'i't' 'p'r'o'j'e'c't'[C;[K
