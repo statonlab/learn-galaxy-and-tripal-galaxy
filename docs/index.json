@@ -11,7 +11,7 @@
 	"title": "Install Galaxy Tools",
 	"tags": [],
 	"description": "",
-	"content": ""
+	"content": "Register an admin account You need admin permission to install tools in Galaxy. Let’s create an admin account first. In the previous section, we have set example@gmail.com as an admin user email. We can use this email to register an admin account.\nIf you successfully registered an admin account, you should be able to see admin on the tool menu on the top.\n "
 },
 {
 	"uri": "/galaxy-setup/build-galaxy-workflows/",

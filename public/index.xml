@@ -26,7 +26,9 @@ Launch a Galaxy instance: docker run -i -t --rm \ -p 80:80 -p 8021:21 -p 8022:22
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/galaxy-setup/install-galaxy-tools/</guid>
-      <description></description>
+      <description>Register an admin account You need admin permission to install tools in Galaxy. Let’s create an admin account first. In the previous section, we have set example@gmail.com as an admin user email. We can use this email to register an admin account.
+If you successfully registered an admin account, you should be able to see admin on the tool menu on the top.
+ </description>
     </item>
     
     <item>

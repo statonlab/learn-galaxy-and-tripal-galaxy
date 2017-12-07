@@ -11,3 +11,18 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+## Register an admin account
+
+You need admin permission to install tools in Galaxy. Let's create an admin account first. In the [previous section](/galaxy-setup/launch-galaxy-instance), we have set `example@gmail.com` as an admin user email. We can use this email to register an admin account.
+
+```{r echo=FALSE}
+knitr::include_graphics('/galaxy-setup/images/register-account-menu.png')
+knitr::include_graphics('/galaxy-setup/images/register-account-page.png')
+```
+
+If you successfully registered an admin account, you should be able to see `admin` on the tool menu on the top.
+
+```{r echo=FALSE}
+knitr::include_graphics('/galaxy-setup/images/register-account-admin.png')
+```
+
