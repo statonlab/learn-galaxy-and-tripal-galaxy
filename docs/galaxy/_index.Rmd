@@ -1,0 +1,21 @@
+---
+title: "Galaxy Setup"
+author: "Ming Chen"
+chapter: true
+pre: "<b>1. </b>"
+date: "12/6/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Galaxy Setup
+
+### Overview
+
+* Launch Galaxy Instance
+* Install Galaxy Tools
+* Build Galaxy Workflows
+

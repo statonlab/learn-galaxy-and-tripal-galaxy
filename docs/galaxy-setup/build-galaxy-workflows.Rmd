@@ -1,0 +1,12 @@
+---
+weight: 3
+title: "Build Galaxy Workflows"
+author: "Ming Chen"
+date: "12/6/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
