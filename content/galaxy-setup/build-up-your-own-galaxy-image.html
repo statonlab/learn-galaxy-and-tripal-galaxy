@@ -1,0 +1,68 @@
+---
+weight: 3
+title: "Build up your own Galaxy image"
+author: "Ming Chen"
+date: "12/7/2017"
+output: html_document
+---
+
+
+
+<style>
+pre code, pre, code {
+  white-space: pre !important;
+  overflow-x: scroll !important;
+  word-break: keep-all !important;
+  word-wrap: initial !important;
+}
+</style>
+<div id="build-up-your-own-galaxy-container" class="section level2">
+<h2>Build up your own Galaxy container</h2>
+<p>The <a href="https://github.com/bgruening/docker-galaxy-stable">Galaxy Docker container</a> we are using only has basic tools. Performing a complicated computational analysis can involve many many tools. We can install many tools into a Galaxy instance and save the installation work into a container. Next time when we need a Galaxy instance for data analysis, we can launch one with our own Galaxy container. The container will already have the tools we install before. We don’t need to go through the whole process again.</p>
+<p>To build such a Galaxy container, we can simply run the command:</p>
+<pre class="r"><code>docker commit [CONTAINER ID] [DOCKER_USERNAME]/[CONTAINER_NAME]</code></pre>
+<ul>
+<li><code>[CONTAINER ID]</code>: the container ID, which can be found by running the command <code>docker ps -a</code>.</li>
+<li><code>[DOCKER_USERNAME]</code>: the username of your <a href="https://hub.docker.com/">docker hub account</a>.</li>
+<li><code>[CONTAINER_NAME]</code>: the container name for identifying this container.</li>
+</ul>
+<p>Let’s the see an example.</p>
+<div id="run-the-command-below-to-get-container-id" class="section level4">
+<h4>Run the command below to get container ID:</h4>
+<pre class="r"><code>docker ps -a</code></pre>
+<p>You should get something similar to this.</p>
+<pre class="r"><code>CONTAINER ID        IMAGE                           COMMAND             CREATED             STATUS              PORTS                                                                                         NAMES
+fd2d0f70a407        bgruening/galaxy-stable:17.01   &quot;/bin/bash&quot;         13 hours ago        Up 13 hours         443/tcp, 8800/tcp, 0.0.0.0:80-&gt;80/tcp, 9002/tcp, 0.0.0.0:8021-&gt;21/tcp, 0.0.0.0:8022-&gt;22/tcp   gallant_hugle</code></pre>
+<p>You will get the container ID (<code>fd2d0f70a407</code>), which docker image (<code>bgruening/galaxy-stable:17.01</code>) you are using to launch your galaxy instance, and some other information.</p>
+</div>
+<div id="build-your-own-galaxy-image" class="section level4">
+<h4>Build your own Galaxy image</h4>
+<pre class="r"><code>docker commit fd2d0f70a407 mingchen0919/my_own_galaxy</code></pre>
+<p>Here my Docker hub account username is <code>mingchen0919</code>, and my docker image name is <code>my_own_galaxy</code>.</p>
+</div>
+<div id="use-your-own-galaxy-image" class="section level4">
+<h4>Use your own Galaxy image</h4>
+<p>We will use the same command to launch our galaxy instance. We just need to replace the docker image <code>bgruening/galaxy-stable:17.01</code> with our own image <code>mingchen0919/my_own_galaxy</code>.</p>
+<pre class="r"><code>docker run -i -t --rm \
+  -p 80:80 -p 8021:21 -p 8022:22 \
+  -e &quot;ENABLE_TTS_INSTALL=True&quot; \
+  -e &quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.com&quot; \
+  mingchen0919/my_own_galaxy /bin/bash</code></pre>
+</div>
+<div id="iterate-galaxy-image-building" class="section level4">
+<h4>Iterate Galaxy image building</h4>
+<p>If you install new tools to the Galaxy instance launched from your own Galaxy image. You can run another commit to save your work to a new Galaxy image. Note if you have uploaded some datasets and done some analysis, the uploaded data and analysis will also be committed to your new image. You probably should commit your new image before running any analysis, unless you want to integrate it to your image.</p>
+<p>Get the new container ID by running <code>docker ps -a</code>. You will see something similar to this.</p>
+<pre class="r"><code>CONTAINER ID        IMAGE                           COMMAND             CREATED             STATUS              PORTS                                                                                         NAMES
+ed2dbf76a407        mingchen0919/my_own_galaxy   &quot;/bin/bash&quot;         1 hours ago        Up 13 hours         443/tcp, 8800/tcp, 0.0.0.0:80-&gt;80/tcp, 9002/tcp, 0.0.0.0:8021-&gt;21/tcp, 0.0.0.0:8022-&gt;22/tcp   gallant_monster</code></pre>
+<p>You can commit a new image from this running container with command:</p>
+<pre class="r"><code>docker commit ed2dbf76a407 mingchen0919/my_own_galaxy</code></pre>
+<p>The command above will overwrite your <code>my_own_galaxy</code> image with updates. If you don’t want to overwrite it, you can choose a different name.</p>
+</div>
+<div id="push-your-image-to-docker-hub" class="section level4">
+<h4>Push your image to Docker hub</h4>
+<p>You can push your image to Docker hub repository. If you want to run a Galaxy instance on a different machine, you can simply pull the image from the Docker hub and launch a Galaxy instance.</p>
+<p>The command to push image to Docker hub is</p>
+<pre class="r"><code>docker push mingchen0919/my_own_galaxy</code></pre>
+</div>
+</div>

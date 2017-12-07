@@ -26,3 +26,42 @@ If you successfully registered an admin account, you should be able to see `admi
 knitr::include_graphics('/galaxy-setup/images/register-account-admin.png')
 ```
 
+## Install tools
+
+Click the **admin** button and then click **Search Tool Shed** on the left menu.
+
+```{r echo=FALSE}
+knitr::include_graphics('/galaxy-setup/images/install-tool-search-tool.png')
+```
+
+The tool we are going to install is **fastqc**. This tool can be found on both `main tool shed` and `test tool shed` repository. We will install the tool from the `main tool shed`.
+
+```{r echo=FALSE}
+knitr::include_graphics('/galaxy-setup/images/install-tool-toolshed.png')
+```
+
+On the tool search page, search for tool `fastqc`. You will find multiple different `fastqc` tools created by different developers. We are going to select the one owned by `devteam`. `devteam` represents a group of people from the development team of Galaxy.
+
+```{r echo=FALSE}
+knitr::include_graphics('/galaxy-setup/images/install-tool-fastqc.png')
+```
+
+We select the tool and click `Install to Galaxy` install.
+
+```{r echo=FALSE}
+knitr::include_graphics('/galaxy-setup/images/install-tool-fastqc-page.png')
+```
+
+We can install the tool to an exisint tool panel section. We can also install it to a new tool panel section. Here we install the `fastqc` tool to a new panel section.
+
+```{r echo=FALSE}
+knitr::include_graphics('/galaxy-setup/images/install-tool-tool-panel.png')
+knitr::include_graphics('/galaxy-setup/images/install-tool-installing.png')
+```
+
+Once the installation completes, we can go to the home page. The tool can be found on the `My Tools` panel section on the left. Clicking the tool will show you the tool interface.
+
+```{r echo=FALSE}
+knitr::include_graphics('/galaxy-setup/images/install-tool-panel-page.png')
+knitr::include_graphics('/galaxy-setup/images/install-tool-fastqc-interface.png')
+```

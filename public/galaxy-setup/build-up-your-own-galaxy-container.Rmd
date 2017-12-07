@@ -1,0 +1,54 @@
+---
+weight: 3
+title: "Build up your own Galaxy image"
+author: "Ming Chen"
+date: "12/7/2017"
+output: html_document
+---
+
+<style>
+pre code, pre, code {
+  white-space: pre !important;
+  overflow-x: scroll !important;
+  word-break: keep-all !important;
+  word-wrap: initial !important;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Build up your own Galaxy container
+
+The [Galaxy Docker container](https://github.com/bgruening/docker-galaxy-stable) we are using only has basic tools. Performing a complicated computational analysis can involve many many tools. We can install many tools into a Galaxy instance and save the installation work into a container. Next time when we need a Galaxy instance for data analysis, we can launch one with our own Galaxy container. The container will already have the tools we install before. We don't need to go through the whole process again.
+
+To build such a Galaxy container, we can simply run the command:
+
+```{r eval=FALSE}
+docker commit [CONTAINER ID] [DOCKER_USERNAME]/[CONTAINER_NAME]
+```
+
+* `[CONTAINER ID]`: the container ID, which can be found by running the command `docker ps -a`.
+* `[DOCKER_USERNAME]`: the username of your [docker hub account](https://hub.docker.com/).
+* `[CONTAINER_NAME]`: the container name for identifying this container.
+
+Let's the see an example.
+
+#### Run the command below to get container ID:
+
+```{r eval=FALSE}
+docker ps -a
+```
+
+You should get something similar to this.
+
+```{r eval=FALSE}
+CONTAINER ID        IMAGE                           COMMAND             CREATED             STATUS              PORTS                                                                                         NAMES
+fd2d0f70a407        bgruening/galaxy-stable:17.01   "/bin/bash"         13 hours ago        Up 13 hours         443/tcp, 8800/tcp, 0.0.0.0:80->80/tcp, 9002/tcp, 0.0.0.0:8021->21/tcp, 0.0.0.0:8022->22/tcp   gallant_hugle
+```
+
+
+You will get the container ID (`fd2d0f70a407`), which docker image (`bgruening/galaxy-stable:17.01`) you are using to launch your galaxy instance, and some other information.
+
+#### Build your own image

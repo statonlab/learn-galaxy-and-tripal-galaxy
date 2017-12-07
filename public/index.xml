@@ -28,7 +28,16 @@ Launch a Galaxy instance: docker run -i -t --rm \ -p 80:80 -p 8021:21 -p 8022:22
       <guid>/galaxy-setup/install-galaxy-tools/</guid>
       <description>Register an admin account You need admin permission to install tools in Galaxy. Let’s create an admin account first. In the previous section, we have set example@gmail.com as an admin user email. We can use this email to register an admin account.
 If you successfully registered an admin account, you should be able to see admin on the tool menu on the top.
- </description>
+ Install tools Click the admin button and then click Search Tool Shed on the left menu.</description>
+    </item>
+    
+    <item>
+      <title>Build up your own Galaxy image</title>
+      <link>/galaxy-setup/build-up-your-own-galaxy-image/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/galaxy-setup/build-up-your-own-galaxy-image/</guid>
+      <description>pre code, pre, code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  Build up your own Galaxy container The Galaxy Docker container we are using only has basic tools. Performing a complicated computational analysis can involve many many tools. We can install many tools into a Galaxy instance and save the installation work into a container. Next time when we need a Galaxy instance for data analysis, we can launch one with our own Galaxy container.</description>
     </item>
     
     <item>
