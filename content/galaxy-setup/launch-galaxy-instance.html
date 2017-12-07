@@ -1,0 +1,61 @@
+---
+weight: 1
+title: "Launch Galaxy Instance"
+author: "Ming Chen"
+date: "12/6/2017"
+output: html_document
+---
+
+
+
+<div id="docker-galaxy" class="section level2">
+<h2>Docker Galaxy</h2>
+<p>The Docker Galaxy image created by <a href="https://github.com/bgruening/docker-galaxy-stable">Björn Grüning</a> is probably the mostly widely used Docker image for Galaxy. It has over 10k+ pulls from <a href="https://hub.docker.com/search/?isAutomated=0&amp;isOfficial=0&amp;page=1&amp;pullCount=0&amp;q=galaxy&amp;starCount=0">Docker hub</a>. We are going to use this image to launch a Galaxy instance. Before we launch a Docker container, we need to get Docker installed. Instructions on Docker installation can be found on the offical <a href="https://www.docker.com/">Docker website</a>.</p>
+<div id="launch-a-galaxy-instance" class="section level4">
+<h4>Launch a Galaxy instance:</h4>
+<pre class="r"><code>docker run -i -t --rm \
+  -p 80:80 -p 8021:21 -p 8022:22 \
+  -e &quot;ENABLE_TTS_INSTALL=True&quot; \
+  -e &quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.com&quot; \
+  bgruening/galaxy-stable:17.01 /bin/bash</code></pre>
+</div>
+<div id="command-line-arguments-explanation" class="section level4">
+<h4>Command line arguments explanation:</h4>
+<ul>
+<li><code>-t</code>: run docker container interactively. This will keep STDIN open even if not attached.</li>
+<li><code>-p</code>: mapping the container’s ports to the host machines port. A nginx web server is running on port 80. Ports 21 and 22 are for FTP and SFTP protocols, respectively. We map these ports to a host port, so that we can interact with servers within the container through our host machine.</li>
+<li><code>-e &quot;ENABLE_TTS_INSTALL=True&quot;</code>: enables tool installation from test tool shed. By default, only tool shed is available for Galaxy tool installation.</li>
+<li><code>-e &quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.com&quot;</code>: register the email <code>example@gmail.com</code> as an admin user email. The user registered with this email will have admin permission on the Galaxy instance.</li>
+</ul>
+</div>
+<div id="start-galaxy" class="section level4">
+<h4>Start Galaxy</h4>
+<p>So far, we have lunched a Docker container which has Galaxy installed. But we haven’t started Galaxy yet. We have logged into the Container as <strong>root user</strong>.</p>
+<pre class="r"><code>Mings-MacBook-Pro:~ mingchen$ docker run -i -t --rm \
+&gt;   -p 80:80 -p 8021:21 -p 8022:22 \
+&gt;   -e &quot;ENABLE_TTS_INSTALL=True&quot; \
+&gt;   -e &quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.com&quot; \
+&gt;   bgruening/galaxy-stable:17.01 /bin/bash
+root@fd2d0f70a407:/galaxy-central</code></pre>
+<p>To start Galaxy, just run the command below within the container:</p>
+<pre class="r"><code>startup</code></pre>
+<p>Once the starting process completes, you should see the Galaxy logs on your screen:</p>
+<pre class="r"><code>==&gt; /home/galaxy/logs/uwsgi.log &lt;==
+galaxy.webapps.galaxy.buildapp DEBUG 2017-12-07 03:27:15,199 Enabling &#39;Batch&#39; middleware
+galaxy.webapps.galaxy.buildapp DEBUG 2017-12-07 03:27:15,199 Prior to webapp return, Galaxy thread &lt;_MainThread(MainThread, started 140164177794880)&gt; is alive.
+Thu Dec  7 03:27:15 2017 - WSGI app 0 (mountpoint=&#39;&#39;) ready in 20 seconds on interpreter 0x17cbc60 pid: 173 (default app)
+Thu Dec  7 03:27:15 2017 - *** uWSGI is running in multiple interpreter mode ***
+Thu Dec  7 03:27:15 2017 - spawned uWSGI master process (pid: 173)
+Thu Dec  7 03:27:15 2017 - spawned uWSGI worker 1 (pid: 293, cores: 4)
+Thu Dec  7 03:27:15 2017 - spawned uWSGI worker 2 (pid: 296, cores: 4)
+Thu Dec  7 03:27:15 2017 - *** Stats server enabled on 127.0.0.1:9191 fd: 12 ***
+galaxy.queue_worker INFO 2017-12-07 03:27:15,206 Binding and starting galaxy control worker for main.1
+galaxy.queue_worker INFO 2017-12-07 03:27:15,231 Binding and starting galaxy control worker for main.2
+tail: unrecognized file system type 0x794c7630 for ‘/home/galaxy/logs/uwsgi.log’. please report this to bug-coreutils@gnu.org. reverting to polling</code></pre>
+<p>Press <code>Ctrl+C</code> to back to your container.</p>
+</div>
+<div id="access-galaxy" class="section level4">
+<h4>Access Galaxy</h4>
+<p>A running Galaxy should be available at <a href="http://127.0.0.1" class="uri">http://127.0.0.1</a>.</p>
+</div>
+</div>

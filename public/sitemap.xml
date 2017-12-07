@@ -3,8 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/galaxy-setup/launch-galaxy-instance/</loc>
+  </url>
+  
+  <url>
+    <loc>/galaxy-setup/install-galaxy-tools/</loc>
+  </url>
+  
+  <url>
+    <loc>/galaxy-setup/build-galaxy-workflows/</loc>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/galaxy-setup/</loc>
   </url>
   
   <url>
@@ -14,6 +30,10 @@
   <url>
     <loc>/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tripal/</loc>
   </url>
   
 </urlset>

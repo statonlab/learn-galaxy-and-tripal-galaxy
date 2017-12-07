@@ -1,0 +1,73 @@
+---
+weight: 1
+title: "Launch Galaxy Instance"
+author: "Ming Chen"
+date: "12/6/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Docker Galaxy
+
+The Docker Galaxy image created by [Björn Grüning](https://github.com/bgruening/docker-galaxy-stable) is probably the mostly widely used Docker image for Galaxy. It has over 10k+ pulls from [Docker hub](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page=1&pullCount=0&q=galaxy&starCount=0). We are going to use this image to launch a Galaxy instance. Before we launch a Docker container, we need to get Docker installed. Instructions on Docker installation can be found on the offical [Docker website](https://www.docker.com/).
+
+#### Launch a Galaxy instance:
+```{r eval=FALSE}
+docker run -i -t --rm \
+  -p 80:80 -p 8021:21 -p 8022:22 \
+  -e "ENABLE_TTS_INSTALL=True" \
+  -e "GALAXY_CONFIG_ADMIN_USERS=example@gmail.com" \
+  bgruening/galaxy-stable:17.01 /bin/bash
+```
+
+#### Command line arguments explanation:
+
+* `-t`: run docker container interactively. This will keep STDIN open even if not attached.
+* `-p`: mapping the container's ports to the host machines port. A nginx web server is running on port 80. Ports 21 and 22 are for FTP and SFTP protocols, respectively. We map these ports to a host port, so that we can interact with servers within the container through our host machine.
+* `-e "ENABLE_TTS_INSTALL=True"`: enables tool installation from test tool shed. By default, only tool shed is available for Galaxy tool installation.
+* `-e "GALAXY_CONFIG_ADMIN_USERS=example@gmail.com"`: register the email `example@gmail.com` as an admin user email. The user registered with this email will have admin permission on the Galaxy instance.
+
+#### Start Galaxy
+
+So far, we have lunched a Docker container which has Galaxy installed. But we haven't started Galaxy yet. We have logged into the Container as **root user**.
+
+```{r eval=FALSE}
+Mings-MacBook-Pro:~ mingchen$ docker run -i -t --rm \
+>   -p 80:80 -p 8021:21 -p 8022:22 \
+>   -e "ENABLE_TTS_INSTALL=True" \
+>   -e "GALAXY_CONFIG_ADMIN_USERS=example@gmail.com" \
+>   bgruening/galaxy-stable:17.01 /bin/bash
+root@fd2d0f70a407:/galaxy-central
+```
+
+To start Galaxy, just run the command below within the container:
+
+```{r eval=FALSE}
+startup
+```
+
+Once the starting process completes, you should see the Galaxy logs on your screen:
+
+```{r eval=FALSE}
+==> /home/galaxy/logs/uwsgi.log <==
+galaxy.webapps.galaxy.buildapp DEBUG 2017-12-07 03:27:15,199 Enabling 'Batch' middleware
+galaxy.webapps.galaxy.buildapp DEBUG 2017-12-07 03:27:15,199 Prior to webapp return, Galaxy thread <_MainThread(MainThread, started 140164177794880)> is alive.
+Thu Dec  7 03:27:15 2017 - WSGI app 0 (mountpoint='') ready in 20 seconds on interpreter 0x17cbc60 pid: 173 (default app)
+Thu Dec  7 03:27:15 2017 - *** uWSGI is running in multiple interpreter mode ***
+Thu Dec  7 03:27:15 2017 - spawned uWSGI master process (pid: 173)
+Thu Dec  7 03:27:15 2017 - spawned uWSGI worker 1 (pid: 293, cores: 4)
+Thu Dec  7 03:27:15 2017 - spawned uWSGI worker 2 (pid: 296, cores: 4)
+Thu Dec  7 03:27:15 2017 - *** Stats server enabled on 127.0.0.1:9191 fd: 12 ***
+galaxy.queue_worker INFO 2017-12-07 03:27:15,206 Binding and starting galaxy control worker for main.1
+galaxy.queue_worker INFO 2017-12-07 03:27:15,231 Binding and starting galaxy control worker for main.2
+tail: unrecognized file system type 0x794c7630 for ‘/home/galaxy/logs/uwsgi.log’. please report this to bug-coreutils@gnu.org. reverting to polling
+```
+
+Press `Ctrl+C` to back to your container.
+
+#### Access Galaxy
+
+A running Galaxy should be available at http://127.0.0.1.

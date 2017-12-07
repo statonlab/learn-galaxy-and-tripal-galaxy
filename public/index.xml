@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Learn Galaxy and Tripal Galaxy</title>
+    <title>Galaxy, Tripal and Computational Analysis on Learn Galaxy and Tripal Galaxy</title>
     <link>/</link>
-    <description>Recent content on Learn Galaxy and Tripal Galaxy</description>
+    <description>Recent content in Galaxy, Tripal and Computational Analysis on Learn Galaxy and Tripal Galaxy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Launch Galaxy Instance</title>
+      <link>/galaxy-setup/launch-galaxy-instance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/galaxy-setup/launch-galaxy-instance/</guid>
+      <description>Docker Galaxy The Docker Galaxy image created by Björn Grüning is probably the mostly widely used Docker image for Galaxy. It has over 10k+ pulls from Docker hub. We are going to use this image to launch a Galaxy instance. Before we launch a Docker container, we need to get Docker installed. Instructions on Docker installation can be found on the offical Docker website.
+Launch a Galaxy instance: docker run -i -t --rm \ -p 80:80 -p 8021:21 -p 8022:22 \ -e &amp;quot;ENABLE_TTS_INSTALL=True&amp;quot; \ -e &amp;quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.</description>
+    </item>
+    
+    <item>
+      <title>Install Galaxy Tools</title>
+      <link>/galaxy-setup/install-galaxy-tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/galaxy-setup/install-galaxy-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Build Galaxy Workflows</title>
+      <link>/galaxy-setup/build-galaxy-workflows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/galaxy-setup/build-galaxy-workflows/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
