@@ -1,0 +1,37 @@
+---
+weight: 2
+title: "Run Tools"
+author: "Ming Chen"
+date: "12/7/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Quality evaluation with Fastqc before trimming
+
+We select the **FastQC** tool on the tool panel on the left and select the **dataset collection** from the history we created. The remaining input fields use default values. Click **Execute** to run the job.
+
+```{r echo=FALSE}
+knitr::include_graphics('/use-galaxy/use-tools/images/first-round-fastqc.png')
+```
+
+
+#### Trimming reads with Trimmomatic
+
+Select **Trimmomatic** tool on the tool panel and the **dataset collection** we created as the input for the `input FASTQ file`, click **Execute** to run the job.
+
+```{r echo=FALSE}
+knitr::include_graphics('/use-galaxy/use-tools/images/trimmomatic.png')
+```
+
+
+#### Quality evaluation with Fastqc after trimming
+
+We run **FastQC** again on trimmed reads.
+
+```{r echo=FALSE}
+knitr::include_graphics('/use-galaxy/use-tools/images/second-round-fastqc.png')
+```

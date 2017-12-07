@@ -1,0 +1,20 @@
+---
+weight: 3
+title: "View Results"
+author: "Ming Chen"
+date: "12/7/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+#### View results
+
+Click the eye icon on the right of any output on the history panel to view the file.
+
+```{r}
+knitr::include_graphics('/use-galaxy/use-tools/images/view-results.png')
+```
+

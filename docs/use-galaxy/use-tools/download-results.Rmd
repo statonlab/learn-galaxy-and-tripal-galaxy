@@ -1,0 +1,51 @@
+---
+weight: 4
+title: "Download Results"
+author: "Ming Chen"
+date: "12/7/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+#### Download single dataset
+
+We can select a single dataset on the history panel and click the **Download** icon to download the dataset from Galaxy to your local computer.
+
+```{r echo=FALSE}
+knitr::include_graphics('/use-galaxy/use-tools/images/download-single-dataset.png')
+```
+
+
+#### Download multiple datasets
+
+Galaxy allows you to export the entire history. It also allows you to copy datasets from one history to a new history. We can use this as a strategy to download multiple datasets at once.
+
+
+Click the **History options** icon and then select **copy datasets**.
+
+```{r echo=FALSE}
+knitr::include_graphics('/use-galaxy/use-tools/images/copy-datasets-to-history.png')
+```
+
+
+Copy selected datasets to a new history.
+
+```{r echo=FALSE}
+knitr::include_graphics('/use-galaxy/use-tools/images/select-datasets.png')
+```
+
+Click **View all histories** button to display all history and switch to the history want to export.
+
+```{r echo=FALSE}
+knitr::include_graphics('/use-galaxy/use-tools/images/view-all-histories-icon.png')
+knitr::include_graphics('/use-galaxy/use-tools/images/all-histories.png')
+```
+
+Click the **History options** icon and then select **export history to file**. Once the exporting process is finished, you will be able to download the archived file through the generated link.
+
+```{r echo=FALSE}
+knitr::include_graphics('/use-galaxy/use-tools/images/export-history.png')
+```

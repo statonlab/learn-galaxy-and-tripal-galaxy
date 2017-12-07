@@ -3,11 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/use-galaxy/use-tools/build-dataset-collection/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-galaxy/build-workflows/build-workflow-from-scratch/</loc>
+  </url>
+  
+  <url>
     <loc>/galaxy-setup/launch-galaxy-instance/</loc>
   </url>
   
   <url>
     <loc>/use-galaxy/import-data/upload-local-data/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-galaxy/build-workflows/extract-workflow-from-history/</loc>
   </url>
   
   <url>
@@ -19,7 +31,27 @@
   </url>
   
   <url>
+    <loc>/use-galaxy/use-tools/run-tools/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-galaxy/use-tools/</loc>
+  </url>
+  
+  <url>
     <loc>/galaxy-setup/build-up-your-own-galaxy-image/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-galaxy/use-tools/view-results/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-galaxy/use-tools/download-results/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-galaxy/build-workflows/</loc>
   </url>
   
   <url>
@@ -29,6 +61,10 @@
   
   <url>
     <loc>/galaxy-setup/</loc>
+  </url>
+  
+  <url>
+    <loc>/galaxy-workflows/</loc>
   </url>
   
   <url>
@@ -45,7 +81,15 @@
   </url>
   
   <url>
+    <loc>/tripal-galaxy-setup/</loc>
+  </url>
+  
+  <url>
     <loc>/use-galaxy/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-tripal-galaxy/</loc>
   </url>
   
 </urlset>

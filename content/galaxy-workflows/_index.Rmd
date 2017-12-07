@@ -1,0 +1,12 @@
+---
+title: "Galaxy Workflows"
+author: "Ming Chen"
+chapter: true
+pre: "<b>3. </b>"
+date: "12/6/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```

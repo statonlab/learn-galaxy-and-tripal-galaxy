@@ -1,5 +1,19 @@
 [
 {
+	"uri": "/use-galaxy/use-tools/build-dataset-collection/",
+	"title": "Build Dataset Collection",
+	"tags": [],
+	"description": "",
+	"content": "Please refer to this page to see what dataset collection is and how to build dataset collections.\n"
+},
+{
+	"uri": "/use-galaxy/build-workflows/build-workflow-from-scratch/",
+	"title": "Build Workflow from Scratch",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "/galaxy-setup/launch-galaxy-instance/",
 	"title": "Launch Galaxy Instance",
 	"tags": [],
@@ -14,11 +28,18 @@
 	"content": "Upload local file To upload a local file, click Get Data-\u0026gt;Upload File on the left panel, then you will see the file uploading interface. Click Choose local file to upload your file.\nMost of times, galaxy tools can automatically detect uploaded file types. But you can manually set type for a single file or all files when uploading files.\n Change data type You can also change the data type after the file has been uploaded to Galaxy. In the example below, the uploaded file V_corymbosum_scaffold_May_2013.fa.gff3 is supposed to be in .gff3 format, but Galaxy detects it as a .gff file.\nGo to the history panel on the right, click the dataset that you want to change data type. Click the pencil icon, then click Datatype on the new interface. Select the correct data type and click Save.\nClick the Galaxy logo on the top left to go back to the home page. You will the data type is now .gff3.\n "
 },
 {
+	"uri": "/use-galaxy/build-workflows/extract-workflow-from-history/",
+	"title": "Extract Workflow from History",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "/use-galaxy/import-data/import-with-ftp/",
 	"title": "Import with FTP",
 	"tags": [],
 	"description": "",
-	"content": "R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\nsummary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.:19.0 3rd Qu.: 56.00 ## Max. :25.0 Max. :120.00  Including Plots You can also embed plots, for example:\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n "
+	"content": "Account info for target Galaxy Galaxy has limit on the size of uploaded files. Any thing larger than 2G requires transferring with FTP. To transfer files to a Galaxy instance with FTP, the target Galaxy has to have FTP data transfer enabled. And you will need your account email and password from the target Galaxy to transfer data.\nClicking User on the tool menu will display your account email.\n Connect to target Galaxy Make sure your source server have SFTP or FTP client installed. Go to the directory where you have files that you have to transfer to the Galaxy.\nFor example, I want to transfer some files in the path /home/mchen33/ftp-transfer-dir at my local server to the Galaxy. Below is the content of directory:\n. ├── test1.xt ├── test2.txt └── test_dir ├── file1.txt └── file2.csv Change the working path to the directory\ncd /home/mchen33/ftp-transfer-dir Connect to Galaxy with SFTP\nIn this example, our target Galaxy domain is usegalaxy.org. Run the command below and enter your password. You need to replace the email example@gmail.com with your own email.\nlftp -u example@gmail.com usegalaxy.org Transfer file test1.txt to Galaxy\nIf you successfully connect to Galaxy, your terminal prompt should look similar to this:\nlftp example@gmail.com@usegalaxy.org:~\u0026gt; to transfer the file, run the command:\nput test1.txt Once the transfer completes, you can go to the Galaxy interface. Click Get Data-\u0026gt;Upload File on the left panel. Then click Choose FTP file on the file upload interface. You will be able to see all FTP uploaded files.\nSelect the file and click Start to import the data to Galaxy history.\nTransfer multiple files\nYou can transfer multiple files at once by providing multiple file paths.\nput test1.xt test2.txt test_dir/file1.txt test_dir/file2.csv Once the transfer is done, you will see multiple files available.\n "
 },
 {
 	"uri": "/galaxy-setup/install-galaxy-tools/",
@@ -28,11 +49,46 @@
 	"content": "Register an admin account You need admin permission to install tools in Galaxy. Let’s create an admin account first. In the previous section, we have set example@gmail.com as an admin user email. We can use this email to register an admin account.\nIf you successfully registered an admin account, you should be able to see admin on the tool menu on the top.\n Install tools Click the admin button and then click Search Tool Shed on the left menu.\nThe tool we are going to install is fastqc. This tool can be found on both main tool shed and test tool shed repository. We will install the tool from the main tool shed.\nOn the tool search page, search for tool fastqc. You will find multiple different fastqc tools created by different developers. We are going to select the one owned by devteam. devteam represents a group of people from the development team of Galaxy.\nWe select the tool and click Install to Galaxy install.\nWe can install the tool to an exisint tool panel section. We can also install it to a new tool panel section. Here we install the fastqc tool to a new panel section.\nOnce the installation completes, we can go to the home page. The tool can be found on the My Tools panel section on the left. Clicking the tool will show you the tool interface.\n "
 },
 {
+	"uri": "/use-galaxy/use-tools/run-tools/",
+	"title": "Run Tools",
+	"tags": [],
+	"description": "",
+	"content": "Quality evaluation with Fastqc before trimming We select the FastQC tool on the tool panel on the left and select the dataset collection from the history we created. The remaining input fields use default values. Click Execute to run the job.\n Trimming reads with Trimmomatic Select Trimmomatic tool on the tool panel and the dataset collection we created as the input for the input FASTQ file, click Execute to run the job.\n Quality evaluation with Fastqc after trimming We run FastQC again on trimmed reads.\n "
+},
+{
+	"uri": "/use-galaxy/use-tools/",
+	"title": "Use Tools",
+	"tags": [],
+	"description": "",
+	"content": "In this section, we are going to show how to use Galaxy tools. We will use the fastqc and the trmmomatic tools to do some short reads quality control analysis.\nWe will perform quality control on a set of single end reads and paired end reads. We will learn how to build datasets collections and paired datasets collections.\n"
+},
+{
 	"uri": "/galaxy-setup/build-up-your-own-galaxy-image/",
 	"title": "Build up your own Galaxy image",
 	"tags": [],
 	"description": "",
 	"content": " pre code, pre, code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  Build up your own Galaxy container The Galaxy Docker container we are using only has basic tools. Performing a complicated computational analysis can involve many many tools. We can install many tools into a Galaxy instance and save the installation work into a container. Next time when we need a Galaxy instance for data analysis, we can launch one with our own Galaxy container. The container will already have the tools we install before. We don’t need to go through the whole process again.\nTo build such a Galaxy container, we can simply run the command:\ndocker commit [CONTAINER ID] [DOCKER_USERNAME]/[CONTAINER_NAME]  [CONTAINER ID]: the container ID, which can be found by running the command docker ps -a. [DOCKER_USERNAME]: the username of your docker hub account. [CONTAINER_NAME]: the container name for identifying this container.  Let’s the see an example.\nRun the command below to get container ID: docker ps -a You should get something similar to this.\nCONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES fd2d0f70a407 bgruening/galaxy-stable:17.01 \u0026quot;/bin/bash\u0026quot; 13 hours ago Up 13 hours 443/tcp, 8800/tcp, 0.0.0.0:80-\u0026gt;80/tcp, 9002/tcp, 0.0.0.0:8021-\u0026gt;21/tcp, 0.0.0.0:8022-\u0026gt;22/tcp gallant_hugle You will get the container ID (fd2d0f70a407), which docker image (bgruening/galaxy-stable:17.01) you are using to launch your galaxy instance, and some other information.\n Build your own Galaxy image docker commit fd2d0f70a407 mingchen0919/my_own_galaxy Here my Docker hub account username is mingchen0919, and my docker image name is my_own_galaxy.\n Use your own Galaxy image We will use the same command to launch our galaxy instance. We just need to replace the docker image bgruening/galaxy-stable:17.01 with our own image mingchen0919/my_own_galaxy.\ndocker run -i -t --rm \\ -p 80:80 -p 8021:21 -p 8022:22 \\ -e \u0026quot;ENABLE_TTS_INSTALL=True\u0026quot; \\ -e \u0026quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.com\u0026quot; \\ mingchen0919/my_own_galaxy /bin/bash  Iterate Galaxy image building If you install new tools to the Galaxy instance launched from your own Galaxy image. You can run another commit to save your work to a new Galaxy image. Note if you have uploaded some datasets and done some analysis, the uploaded data and analysis will also be committed to your new image. You probably should commit your new image before running any analysis, unless you want to integrate it to your image.\nGet the new container ID by running docker ps -a. You will see something similar to this.\nCONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES ed2dbf76a407 mingchen0919/my_own_galaxy \u0026quot;/bin/bash\u0026quot; 1 hours ago Up 13 hours 443/tcp, 8800/tcp, 0.0.0.0:80-\u0026gt;80/tcp, 9002/tcp, 0.0.0.0:8021-\u0026gt;21/tcp, 0.0.0.0:8022-\u0026gt;22/tcp gallant_monster You can commit a new image from this running container with command:\ndocker commit ed2dbf76a407 mingchen0919/my_own_galaxy The command above will overwrite your my_own_galaxy image with updates. If you don’t want to overwrite it, you can choose a different name.\n Push your image to Docker hub You can push your image to Docker hub repository. If you want to run a Galaxy instance on a different machine, you can simply pull the image from the Docker hub and launch a Galaxy instance.\nThe command to push image to Docker hub is\ndocker push mingchen0919/my_own_galaxy   "
+},
+{
+	"uri": "/use-galaxy/use-tools/view-results/",
+	"title": "View Results",
+	"tags": [],
+	"description": "",
+	"content": "View results Click the eye icon on the right of any output on the history panel to view the file.\n "
+},
+{
+	"uri": "/use-galaxy/use-tools/download-results/",
+	"title": "Download Results",
+	"tags": [],
+	"description": "",
+	"content": "Download single dataset We can select a single dataset on the history panel and click the Download icon to download the dataset from Galaxy to your local computer.\n Download multiple datasets Galaxy allows you to export the entire history. It also allows you to copy datasets from one history to a new history. We can use this as a strategy to download multiple datasets at once.\nClick the History options icon and then select copy datasets.\nCopy selected datasets to a new history.\nClick View all histories button to display all history and switch to the history want to export.\nClick the History options icon and then select export history to file. Once the exporting process is finished, you will be able to download the archived file through the generated link.\n "
+},
+{
+	"uri": "/use-galaxy/build-workflows/",
+	"title": "Build Workflows",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "/categories/",
@@ -47,6 +103,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Galaxy Setup Overview  Launch Galaxy Instance Install Galaxy Tools Build Galaxy Workflows    "
+},
+{
+	"uri": "/galaxy-workflows/",
+	"title": "Galaxy Workflows",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "/",
@@ -70,9 +133,23 @@
 	"content": ""
 },
 {
+	"uri": "/tripal-galaxy-setup/",
+	"title": "Tripal Galaxy Setup",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "/use-galaxy/",
 	"title": "Use Galaxy",
 	"tags": [],
 	"description": "",
 	"content": "Use Galaxy Overview  Import data to Galaxy Use Galaxy tools Galaxy workflows    "
+},
+{
+	"uri": "/use-tripal-galaxy/",
+	"title": "Use Tripal Galaxy",
+	"tags": [],
+	"description": "",
+	"content": ""
 }]
