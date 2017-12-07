@@ -7,6 +7,20 @@
 	"content": "Docker Galaxy The Docker Galaxy image created by Björn Grüning is probably the mostly widely used Docker image for Galaxy. It has over 10k+ pulls from Docker hub. We are going to use this image to launch a Galaxy instance. Before we launch a Docker container, we need to get Docker installed. Instructions on Docker installation can be found on the offical Docker website.\nLaunch a Galaxy instance: docker run -i -t --rm \\ -p 80:80 -p 8021:21 -p 8022:22 \\ -e \u0026quot;ENABLE_TTS_INSTALL=True\u0026quot; \\ -e \u0026quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.com\u0026quot; \\ bgruening/galaxy-stable:17.01 /bin/bash  Command line arguments explanation:  -t: run docker container interactively. This will keep STDIN open even if not attached. -p: mapping the container’s ports to the host machines port. A nginx web server is running on port 80. Ports 21 and 22 are for FTP and SFTP protocols, respectively. We map these ports to a host port, so that we can interact with servers within the container through our host machine. -e \u0026quot;ENABLE_TTS_INSTALL=True\u0026quot;: enables tool installation from test tool shed. By default, only tool shed is available for Galaxy tool installation. -e \u0026quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.com\u0026quot;: register the email example@gmail.com as an admin user email. The user registered with this email will have admin permission on the Galaxy instance.   Start Galaxy So far, we have lunched a Docker container which has Galaxy installed. But we haven’t started Galaxy yet. We have logged into the Container as root user.\nMings-MacBook-Pro:~ mingchen$ docker run -i -t --rm \\ \u0026gt; -p 80:80 -p 8021:21 -p 8022:22 \\ \u0026gt; -e \u0026quot;ENABLE_TTS_INSTALL=True\u0026quot; \\ \u0026gt; -e \u0026quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.com\u0026quot; \\ \u0026gt; bgruening/galaxy-stable:17.01 /bin/bash root@fd2d0f70a407:/galaxy-central To start Galaxy, just run the command below within the container:\nstartup Once the starting process completes, you should see the Galaxy logs on your screen:\n==\u0026gt; /home/galaxy/logs/uwsgi.log \u0026lt;== galaxy.webapps.galaxy.buildapp DEBUG 2017-12-07 03:27:15,199 Enabling \u0026#39;Batch\u0026#39; middleware galaxy.webapps.galaxy.buildapp DEBUG 2017-12-07 03:27:15,199 Prior to webapp return, Galaxy thread \u0026lt;_MainThread(MainThread, started 140164177794880)\u0026gt; is alive. Thu Dec 7 03:27:15 2017 - WSGI app 0 (mountpoint=\u0026#39;\u0026#39;) ready in 20 seconds on interpreter 0x17cbc60 pid: 173 (default app) Thu Dec 7 03:27:15 2017 - *** uWSGI is running in multiple interpreter mode *** Thu Dec 7 03:27:15 2017 - spawned uWSGI master process (pid: 173) Thu Dec 7 03:27:15 2017 - spawned uWSGI worker 1 (pid: 293, cores: 4) Thu Dec 7 03:27:15 2017 - spawned uWSGI worker 2 (pid: 296, cores: 4) Thu Dec 7 03:27:15 2017 - *** Stats server enabled on 127.0.0.1:9191 fd: 12 *** galaxy.queue_worker INFO 2017-12-07 03:27:15,206 Binding and starting galaxy control worker for main.1 galaxy.queue_worker INFO 2017-12-07 03:27:15,231 Binding and starting galaxy control worker for main.2 tail: unrecognized file system type 0x794c7630 for ‘/home/galaxy/logs/uwsgi.log’. please report this to bug-coreutils@gnu.org. reverting to polling Press Ctrl+C to back to your container.\n Access Galaxy A running Galaxy should be available at http://127.0.0.1.\n  "
 },
 {
+	"uri": "/use-galaxy/import-data/upload-local-data/",
+	"title": "Upload Local Data",
+	"tags": [],
+	"description": "",
+	"content": "Upload local file To upload a local file, click Get Data-\u0026gt;Upload File on the left panel, then you will see the file uploading interface. Click Choose local file to upload your file.\nMost of times, galaxy tools can automatically detect uploaded file types. But you can manually set type for a single file or all files when uploading files.\n Change data type You can also change the data type after the file has been uploaded to Galaxy. In the example below, the uploaded file V_corymbosum_scaffold_May_2013.fa.gff3 is supposed to be in .gff3 format, but Galaxy detects it as a .gff file.\nGo to the history panel on the right, click the dataset that you want to change data type. Click the pencil icon, then click Datatype on the new interface. Select the correct data type and click Save.\nClick the Galaxy logo on the top left to go back to the home page. You will the data type is now .gff3.\n "
+},
+{
+	"uri": "/use-galaxy/import-data/import-with-ftp/",
+	"title": "Import with FTP",
+	"tags": [],
+	"description": "",
+	"content": "R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\nsummary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.:19.0 3rd Qu.: 56.00 ## Max. :25.0 Max. :120.00  Including Plots You can also embed plots, for example:\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n "
+},
+{
 	"uri": "/galaxy-setup/install-galaxy-tools/",
 	"title": "Install Galaxy Tools",
 	"tags": [],
@@ -19,13 +33,6 @@
 	"tags": [],
 	"description": "",
 	"content": " pre code, pre, code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  Build up your own Galaxy container The Galaxy Docker container we are using only has basic tools. Performing a complicated computational analysis can involve many many tools. We can install many tools into a Galaxy instance and save the installation work into a container. Next time when we need a Galaxy instance for data analysis, we can launch one with our own Galaxy container. The container will already have the tools we install before. We don’t need to go through the whole process again.\nTo build such a Galaxy container, we can simply run the command:\ndocker commit [CONTAINER ID] [DOCKER_USERNAME]/[CONTAINER_NAME]  [CONTAINER ID]: the container ID, which can be found by running the command docker ps -a. [DOCKER_USERNAME]: the username of your docker hub account. [CONTAINER_NAME]: the container name for identifying this container.  Let’s the see an example.\nRun the command below to get container ID: docker ps -a You should get something similar to this.\nCONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES fd2d0f70a407 bgruening/galaxy-stable:17.01 \u0026quot;/bin/bash\u0026quot; 13 hours ago Up 13 hours 443/tcp, 8800/tcp, 0.0.0.0:80-\u0026gt;80/tcp, 9002/tcp, 0.0.0.0:8021-\u0026gt;21/tcp, 0.0.0.0:8022-\u0026gt;22/tcp gallant_hugle You will get the container ID (fd2d0f70a407), which docker image (bgruening/galaxy-stable:17.01) you are using to launch your galaxy instance, and some other information.\n Build your own Galaxy image docker commit fd2d0f70a407 mingchen0919/my_own_galaxy Here my Docker hub account username is mingchen0919, and my docker image name is my_own_galaxy.\n Use your own Galaxy image We will use the same command to launch our galaxy instance. We just need to replace the docker image bgruening/galaxy-stable:17.01 with our own image mingchen0919/my_own_galaxy.\ndocker run -i -t --rm \\ -p 80:80 -p 8021:21 -p 8022:22 \\ -e \u0026quot;ENABLE_TTS_INSTALL=True\u0026quot; \\ -e \u0026quot;GALAXY_CONFIG_ADMIN_USERS=example@gmail.com\u0026quot; \\ mingchen0919/my_own_galaxy /bin/bash  Iterate Galaxy image building If you install new tools to the Galaxy instance launched from your own Galaxy image. You can run another commit to save your work to a new Galaxy image. Note if you have uploaded some datasets and done some analysis, the uploaded data and analysis will also be committed to your new image. You probably should commit your new image before running any analysis, unless you want to integrate it to your image.\nGet the new container ID by running docker ps -a. You will see something similar to this.\nCONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES ed2dbf76a407 mingchen0919/my_own_galaxy \u0026quot;/bin/bash\u0026quot; 1 hours ago Up 13 hours 443/tcp, 8800/tcp, 0.0.0.0:80-\u0026gt;80/tcp, 9002/tcp, 0.0.0.0:8021-\u0026gt;21/tcp, 0.0.0.0:8022-\u0026gt;22/tcp gallant_monster You can commit a new image from this running container with command:\ndocker commit ed2dbf76a407 mingchen0919/my_own_galaxy The command above will overwrite your my_own_galaxy image with updates. If you don’t want to overwrite it, you can choose a different name.\n Push your image to Docker hub You can push your image to Docker hub repository. If you want to run a Galaxy instance on a different machine, you can simply pull the image from the Docker hub and launch a Galaxy instance.\nThe command to push image to Docker hub is\ndocker push mingchen0919/my_own_galaxy   "
-},
-{
-	"uri": "/galaxy-setup/build-galaxy-workflows/",
-	"title": "Build Galaxy Workflows",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "/categories/",
@@ -49,6 +56,13 @@
 	"content": "Galaxy, Tripal and Computational Analysis Galaxy is an open, web-based platform for reproducible computational analysis. Tripal Galaxy is a Tripal module that allows Tripal site users to interact with Galaxy from within a Tripal site.\n "
 },
 {
+	"uri": "/use-galaxy/import-data/",
+	"title": "Import Data to Galaxy",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "/tags/",
 	"title": "Tags",
 	"tags": [],
@@ -56,9 +70,9 @@
 	"content": ""
 },
 {
-	"uri": "/tripal/",
-	"title": "Triapl",
+	"uri": "/use-galaxy/",
+	"title": "Use Galaxy",
 	"tags": [],
 	"description": "",
-	"content": "R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\nsummary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.:19.0 3rd Qu.: 56.00 ## Max. :25.0 Max. :120.00  Including Plots You can also embed plots, for example:\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n "
+	"content": "Use Galaxy Overview  Import data to Galaxy Use Galaxy tools Galaxy workflows    "
 }]

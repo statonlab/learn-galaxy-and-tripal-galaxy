@@ -7,15 +7,19 @@
   </url>
   
   <url>
+    <loc>/use-galaxy/import-data/upload-local-data/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-galaxy/import-data/import-with-ftp/</loc>
+  </url>
+  
+  <url>
     <loc>/galaxy-setup/install-galaxy-tools/</loc>
   </url>
   
   <url>
     <loc>/galaxy-setup/build-up-your-own-galaxy-image/</loc>
-  </url>
-  
-  <url>
-    <loc>/galaxy-setup/build-galaxy-workflows/</loc>
   </url>
   
   <url>
@@ -32,12 +36,16 @@
   </url>
   
   <url>
+    <loc>/use-galaxy/import-data/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tripal/</loc>
+    <loc>/use-galaxy/</loc>
   </url>
   
 </urlset>

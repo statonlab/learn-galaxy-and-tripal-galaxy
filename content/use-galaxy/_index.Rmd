@@ -1,0 +1,20 @@
+---
+title: "Use Galaxy"
+author: "Ming Chen"
+chapter: true
+pre: "<b>2. </b>"
+date: "12/6/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Use Galaxy
+
+### Overview
+
+* Import data to Galaxy
+* Use Galaxy tools
+* Galaxy workflows

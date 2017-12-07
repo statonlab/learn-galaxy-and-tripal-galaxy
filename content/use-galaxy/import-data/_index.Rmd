@@ -1,12 +1,10 @@
 ---
-weight: 4
-title: "Build Galaxy Workflows"
+title: "Import Data to Galaxy"
 author: "Ming Chen"
-date: "12/6/2017"
+date: "12/7/2017"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
