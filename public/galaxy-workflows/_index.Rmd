@@ -1,9 +1,9 @@
 ---
+weight: 3
 title: "Galaxy Workflows"
 author: "Ming Chen"
 chapter: true
 pre: "<b>3. </b>"
-date: "12/6/2017"
 output: html_document
 ---
 

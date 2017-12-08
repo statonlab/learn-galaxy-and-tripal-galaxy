@@ -11,7 +11,15 @@
   </url>
   
   <url>
+    <loc>/galaxy-setup/</loc>
+  </url>
+  
+  <url>
     <loc>/galaxy-setup/launch-galaxy-instance/</loc>
+  </url>
+  
+  <url>
+    <loc>/galaxy-workflows/normalized-rnaseq-counts-se/</loc>
   </url>
   
   <url>
@@ -31,7 +39,15 @@
   </url>
   
   <url>
+    <loc>/galaxy-workflows/normalized-rnaseq-counts-pe/</loc>
+  </url>
+  
+  <url>
     <loc>/use-galaxy/use-tools/run-tools/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-galaxy/</loc>
   </url>
   
   <url>
@@ -43,11 +59,23 @@
   </url>
   
   <url>
+    <loc>/galaxy-workflows/</loc>
+  </url>
+  
+  <url>
     <loc>/use-galaxy/use-tools/view-results/</loc>
   </url>
   
   <url>
     <loc>/use-galaxy/use-tools/download-results/</loc>
+  </url>
+  
+  <url>
+    <loc>/tripal-galaxy-setup/</loc>
+  </url>
+  
+  <url>
+    <loc>/use-tripal-galaxy/</loc>
   </url>
   
   <url>
@@ -57,14 +85,6 @@
   <url>
     <loc>/categories/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/galaxy-setup/</loc>
-  </url>
-  
-  <url>
-    <loc>/galaxy-workflows/</loc>
   </url>
   
   <url>
@@ -78,18 +98,6 @@
   <url>
     <loc>/tags/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tripal-galaxy-setup/</loc>
-  </url>
-  
-  <url>
-    <loc>/use-galaxy/</loc>
-  </url>
-  
-  <url>
-    <loc>/use-tripal-galaxy/</loc>
   </url>
   
 </urlset>

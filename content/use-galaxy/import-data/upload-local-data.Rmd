@@ -2,7 +2,6 @@
 weight: 1
 title: "Upload Local Data"
 author: "Ming Chen"
-date: "12/7/2017"
 output: html_document
 ---
 

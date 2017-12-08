@@ -1,0 +1,29 @@
+---
+weight: 2
+title: "Normalized RNASeq Counts (paired end reads)"
+author: "Ming Chen"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+#### Workflow source file
+
+<i class="fa fa-file" aria-hidden="true"></i> [RNASeq-counts_(cuffquant,_paired_end).ga](galaxy-workflows/workflow-sources/RNASeq-counts_(cuffquant,_paired_end).ga)
+
+
+
+#### Calculate read counts
+
+```{r}
+knitr::include_graphics('/galaxy-workflows/images/rnaseq-counts-pe.png')
+```
+
+
+#### Normalize counts
+
+```{r}
+knitr::include_graphics('/galaxy-workflows/images/cuffnorm-normalize-counts.png')
+```

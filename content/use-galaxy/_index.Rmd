@@ -1,9 +1,9 @@
 ---
+weight: 2
 title: "Use Galaxy"
 author: "Ming Chen"
 chapter: true
 pre: "<b>2. </b>"
-date: "12/6/2017"
 output: html_document
 ---
 
