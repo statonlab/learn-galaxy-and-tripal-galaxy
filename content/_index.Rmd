@@ -1,5 +1,5 @@
 ---
-title: "Galaxy, Tripal and Computational Analysis"
+title: "Galaxy, Tripal Galaxy and Computational Analysis"
 author: "Ming Chen"
 output: html_document
 ---
