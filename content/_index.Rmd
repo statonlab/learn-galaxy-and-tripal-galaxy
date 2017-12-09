@@ -8,7 +8,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Galaxy, Tripal and Computational Analysis
+## Galaxy, Tripal Galaxy and Computational Analysis
 
 [Galaxy](https://usegalaxy.org/) is an open, web-based platform for reproducible computational analysis. Tripal Galaxy is a [Tripal](http://tripal.info) module that allows Tripal site users to interact with Galaxy from within a Tripal site.
 

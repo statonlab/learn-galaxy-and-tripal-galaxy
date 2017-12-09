@@ -151,7 +151,7 @@
 	"title": "Galaxy, Tripal Galaxy and Computational Analysis",
 	"tags": [],
 	"description": "",
-	"content": "Galaxy, Tripal and Computational Analysis Galaxy is an open, web-based platform for reproducible computational analysis. Tripal Galaxy is a Tripal module that allows Tripal site users to interact with Galaxy from within a Tripal site.\n "
+	"content": "Galaxy, Tripal Galaxy and Computational Analysis Galaxy is an open, web-based platform for reproducible computational analysis. Tripal Galaxy is a Tripal module that allows Tripal site users to interact with Galaxy from within a Tripal site.\n "
 },
 {
 	"uri": "/use-galaxy/import-data/",
